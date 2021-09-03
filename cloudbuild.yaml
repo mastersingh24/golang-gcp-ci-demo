@@ -24,3 +24,14 @@ steps:
     name: "golang"
     args: ["go","test","."]
     env: ["GO11MODULE=on"]
+
+  - id: build_image
+    name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/hello-app:latest'
+      - '.'
+
+images:
+  - 'gcr.io/$PROJECT_ID/hello-app:latest'
