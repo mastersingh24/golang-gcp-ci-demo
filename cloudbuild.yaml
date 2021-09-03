@@ -21,5 +21,6 @@ steps:
     args: ["golangci-lint","run"]
 
   - id: go_test
-    name: "gcr.io/cloud-builders/go"
-    args: ["test"]
+    name: "golang"
+    args: ["go","test","."]
+    env: ["GO11MODULE=on"]
